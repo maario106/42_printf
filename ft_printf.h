@@ -1,6 +1,9 @@
 # ifndef PRINTF_H
 # define PRINTF_H
 
-int	ft_prinf(char const *, )
+# include <stdarg.h>
+# include <stdio.h>
+
+int	ft_prinf(char const *chain, ...);
 
 # endif

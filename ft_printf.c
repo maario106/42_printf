@@ -1,6 +1,19 @@
-# ifndef PRINTF_H
-# define PRINTF_H
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mrosas-n <mrosas-n@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/09/07 19:00:19 by mrosas-n          #+#    #+#             */
+/*   Updated: 2026/09/07 19:07:42 by mrosas-n         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-int	ft_prinf(char const *, )
+#include "ft_printf.h"
 
-# endif
+int	ft_printf(char	const *chain, ...)
+{
+	va_list = args;
+	va_start(args, chain);
+}
