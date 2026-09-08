@@ -8,7 +8,7 @@ INCLUDE=	ft_printf.h
 LIBFT_DIR=	libft
 LIBFT=		$(LIBFT_DIR)/libft.a
 
-SRCS =
+SRCS =	ft_printf.c
 
 OBJS =	$(SRCS:.c=.o)
 
