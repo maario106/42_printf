@@ -3,33 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mrosas-n <mrosas-n@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 19:00:19 by mrosas-n          #+#    #+#             */
-/*   Updated: 2026/09/08 20:00:02 by mrosas-n         ###   ########.fr       */
+/*   Updated: 2026/09/15 11:03:03 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include "stdio.h"
 
-void	process(va_list *vargs, char *chain, size_t *counter)
+void	process(va_list vargs, char *chain, size_t *counter)
 {
-	if (*chain == 'c' || *chain == 's')
-	{	
-		ft_putchar_pf((char)va_arg(*vargs, int), counter);
-	}
-	if (*chain == 's')
+	if (*chain == 'c')
+		ft_putchar_pf(va_arg(vargs, int), counter);
+	else if (*chain == 's')
+		ft_putstr_pf(va_arg(vargs, char *), counter);
+	else if (*chain == 'i' || *chain == 'd')
+		ft_putnbr_pf(va_arg(vargs, int), counter);
+	else if (*chain == 'u')
+		ft_putunbr_pf(va_arg(vargs, unsigned int), counter);
+	else if (*chain == 'p')
+		ft_putptr_pf(va_arg(vargs, void *), counter);
+	else if (*chain == 'x' || *chain == 'X')
 	{
-		ft_putstr_pf(va_arg(*vargs, char *), counter);
+		if (*chain == 'x')
+			ft_puthex_pf(va_arg(vargs, unsigned int), counter, LOWER_HEX_BASE);
+		else if (*chain == 'X')
+			ft_puthex_pf(va_arg(vargs, unsigned int), counter, UPPER_HEX_BASE);
 	}
-	if (*chain == 'd' || *chain == 'i')
-	{
-		ft_putnbr_pf(*chain, counter);
-	}
-	if (*chain == 'x')
-	{
-		ft_puthex_pf(*chain, counter);
-	}
+	else if (*chain == '%')
+		ft_putchar_pf(*chain, counter);
 }
 
 int	ft_printf(char	const *chain, ...)
@@ -54,10 +58,4 @@ int	ft_printf(char	const *chain, ...)
 	}
 	va_end(vargs);
 	return (counter);
-}
-
-int	main(void)
-{
-	ft_printf("hola qu%e tal");
-	return 0;
 }
