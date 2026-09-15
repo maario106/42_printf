@@ -8,7 +8,9 @@ INCLUDE=	ft_printf.h
 LIBFT_DIR=	libft
 LIBFT=		$(LIBFT_DIR)/libft.a
 
-SRCS =	ft_printf.c
+TEST_NAME=	test
+
+SRCS =	ft_printf.c utils.c
 
 OBJS =	$(SRCS:.c=.o)
 
@@ -24,14 +26,17 @@ $(NAME): $(OBJS) $(LIBFT)
 $(LIBFT):
 		$(MAKE) -C $(LIBFT_DIR)
 
+test: $(NAME)
+		$(CC) $(CFLAGS) main.c $(NAME) -o $(TEST_NAME)
+
 clean:
 		rm -f $(OBJS)
 		$(MAKE) -C $(LIBFT_DIR) clean
 
 fclean: clean
-		rm -f $(NAME)
+		rm -f $(NAME) $(TEST_NAME)
 		$(MAKE) -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re test
