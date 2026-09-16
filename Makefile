@@ -10,7 +10,8 @@ LIBFT=		$(LIBFT_DIR)/libft.a
 
 TEST_NAME=	test
 
-SRCS =	ft_printf.c utils.c
+SRCS =	ft_printf.c ft_putchar_pf.c ft_puthex_pf.c ft_putnbr_pf.c \
+		ft_putptr_pf.c ft_putstr_pf.c ft_putunbr_pf.c utils.c
 
 OBJS =	$(SRCS:.c=.o)
 
