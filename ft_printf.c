@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
+/*   By: mrosas-n <mrosas-n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/07 19:00:19 by mrosas-n          #+#    #+#             */
-/*   Updated: 2026/09/15 11:03:03 by codespace        ###   ########.fr       */
+/*   Updated: 2026/09/16 20:52:12 by mrosas-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,10 @@ int	ft_printf(char	const *chain, ...)
 			process(vargs, (char *)chain, &counter);
 		}
 		else
+		{
 			write(1, chain, 1);
+			counter++;
+		}
 		chain++;
 	}
 	va_end(vargs);
