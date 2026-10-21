@@ -42,7 +42,7 @@ int	ft_printf(char	const *chain, ...)
 	size_t	counter;
 
 	if (!chain)
-		return (0);
+		return (-1);
 	counter = 0;
 	va_start(vargs, chain);
 	while (*chain != '\0')
