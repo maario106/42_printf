@@ -6,7 +6,7 @@
 /*   By: mrosas-n <mrosas-n@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/16 20:36:38 by mrosas-n          #+#    #+#             */
-/*   Updated: 2026/09/16 21:47:21 by mrosas-n         ###   ########.fr       */
+/*   Updated: 2026/11/05 13:27:40 by mrosas-n         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # define LOWER_HEX_BASE "0123456789abcdef"
 
 int		ft_printf(char const *chain, ...);
-void	process(va_list vargs, char *chain, size_t *counter);
+void	process(va_list *vargs, char *chain, size_t *counter);
 void	ft_putchar_pf(char c, size_t *counter);
 void	ft_putstr_pf(char *s, size_t *counter);
 void	ft_putnbr_pf(int n, size_t *counter);
